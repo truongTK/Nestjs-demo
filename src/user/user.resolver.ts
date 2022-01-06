@@ -4,24 +4,30 @@ import { User } from './entities/user.entity';
 import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
 import { queryParamsArg } from './dto/query-params.arg';
+import { filterArg } from './dto/filter.arg';
 
 @Resolver(() => User)
 export class UserResolver {
   constructor(private readonly userService: UserService) {}
-
-  @Mutation(() => User)
-  createUser(@Args('createUserInput') createUserInput: CreateUserInput) {
-    return this.userService.create(createUserInput);
-  }
 
   @Query(() => [User])
   async users(@Args() queryParams: queryParamsArg) {
     return this.userService.findAll(queryParams);
   }
 
-  @Query(() => User)
+  @Query(() => User, { nullable: true })
   async user(@Args('id') id: string) {
     return this.userService.findOne(id);
+  }
+
+  @Query(() => [User])
+  async filter(@Args() filter: filterArg) {
+    return this.userService.find(filter);
+  }
+
+  @Mutation(() => User)
+  createUser(@Args('createUserInput') createUserInput: CreateUserInput) {
+    return this.userService.create(createUserInput);
   }
 
   @Mutation(() => User)

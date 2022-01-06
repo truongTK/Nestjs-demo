@@ -24,7 +24,8 @@ type User {
 
 type Query {
   users(pageIndex: Int = 0, pageSize: Int = 5): [User!]!
-  user(id: String!): User!
+  user(id: String!): User
+  filter(name: String, email: String, State: String, petExperience: Boolean, pageIndex: Int = 0, pageSize: Int = 5): [User!]!
 }
 
 type Mutation {
@@ -51,20 +52,11 @@ input CreateUserInput {
 }
 
 input UpdateUserInput {
-  """first name of the user"""
-  firstName: String!
-
-  """last name of the user"""
-  lastName: String!
-
-  """email of the user"""
-  email: String!
-
-  """State of the user"""
-  State: String!
-
-  """Pet experience of the user"""
-  petExperience: Boolean!
+  firstName: String
+  lastName: String
+  email: String
+  State: String
+  petExperience: Boolean
 
   """id of the user"""
   id: String!
