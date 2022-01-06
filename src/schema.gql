@@ -3,14 +3,19 @@
 # ------------------------------------------------------
 
 type User {
+  """id of the user"""
   id: String!
-  firstName: String
-  lastName: String
+
+  """first name of the user"""
+  firstName: String!
+
+  """last name of the user"""
+  lastName: String!
 }
 
 type Query {
   users(pageIndex: Int = 0, pageSize: Int = 5): [User!]!
-  user(id: Int!): User!
+  user(id: String!): User!
 }
 
 type Mutation {

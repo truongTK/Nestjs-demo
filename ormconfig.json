@@ -1,0 +1,11 @@
+{
+  "type": "postgres",
+  "host": "127.0.0.1",
+  "port": 5432,
+  "username": "",
+  "password": "",
+  "database": "rightpaw",
+  "entities": ["src/user/entities/*.entity.ts"],
+  "synchronize": true,
+  "logging": true
+}

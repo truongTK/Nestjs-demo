@@ -20,7 +20,7 @@ export class UserResolver {
   }
 
   @Query(() => User)
-  async user(@Args('id', { type: () => Int }) id: string) {
+  async user(@Args('id') id: string) {
     return this.userService.findOne(id);
   }
 
