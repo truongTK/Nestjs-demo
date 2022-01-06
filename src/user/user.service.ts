@@ -37,7 +37,6 @@ export class UserService {
         email: filter.email,
       });
     }
-
     if (filter.name !== undefined)
       query.andWhere(
         "CONCAT(user.firstName, ' ', user.lastName) LIKE :fullName",
@@ -50,7 +49,6 @@ export class UserService {
         State: filter.State,
       });
     }
-
     if (filter.petExperience !== undefined) {
       query.andWhere('user.petExperience = :petExperience', {
         petExperience: filter.petExperience,
