@@ -11,6 +11,15 @@ type User {
 
   """last name of the user"""
   lastName: String!
+
+  """email of the user"""
+  email: String!
+
+  """State of the user"""
+  State: String!
+
+  """Pet experience of the user"""
+  petExperience: Boolean!
 }
 
 type Query {
@@ -25,13 +34,38 @@ type Mutation {
 }
 
 input CreateUserInput {
-  id: String!
-  firstName: String
-  lastName: String
+  """first name of the user"""
+  firstName: String!
+
+  """last name of the user"""
+  lastName: String!
+
+  """email of the user"""
+  email: String!
+
+  """State of the user"""
+  State: String!
+
+  """Pet experience of the user"""
+  petExperience: Boolean!
 }
 
 input UpdateUserInput {
+  """first name of the user"""
+  firstName: String!
+
+  """last name of the user"""
+  lastName: String!
+
+  """email of the user"""
+  email: String!
+
+  """State of the user"""
+  State: String!
+
+  """Pet experience of the user"""
+  petExperience: Boolean!
+
+  """id of the user"""
   id: String!
-  firstName: String
-  lastName: String
 }
